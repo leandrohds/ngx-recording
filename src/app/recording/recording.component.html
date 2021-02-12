@@ -1,0 +1,22 @@
+<p-panel header="Áudio" [collapsed]="isGravado">
+
+    <ng-template pTemplate="icons">
+        <button pButton pRipple class="p-button-success p-button-rounded p-button-text botao" icon="fas fa-microphone" [pTooltip]="'Iniciar'"
+            [tooltipPosition]="'top'" [disabled]="!isParado" (click)="comecarGravar()">
+        </button>
+
+        <button pButton pRipple class="p-button-warning p-button-rounded p-button-text botao" icon="fas fa-pause" [pTooltip]="'Pausar'"
+            [tooltipPosition]="'top'" [disabled]="!isGravando && !isGravado" (click)="pausarGravacao()">
+        </button>
+
+        <button pButton pRipple class="p-button-danger p-button-rounded p-button-text botao" icon="fas fa-stop" [pTooltip]="'Parar'" [tooltipPosition]="'top'"
+            [disabled]="isParado || isGravado">
+        </button>
+    </ng-template>
+
+    <div class="p-d-flex p-jc-center">
+        <audio #caixaAudio style="width: 100%;" controls>
+        </audio>
+    </div>
+
+</p-panel>
